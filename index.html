@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Address Classifier</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>🌐 IP Address Classifier</h1>
+        <p>Know your IP – Class, Range & Privacy Status</p>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <input type="text" id="ip-input" placeholder="Enter IPv4 Address (e.g. 192.168.1.1)" />
+            <button id="check-btn">Check IP</button>
+        </section>
+
+        <section class="results-section hidden" id="results">
+            <div class="result-card">
+                <h3>🔢 IP Class:</h3>
+                <p id="ip-class"></p>
+            </div>
+            <div class="result-card">
+                <h3>🔒 Private or Public:</h3>
+                <p id="ip-type"></p>
+            </div>
+            <div class="result-card">
+                <h3>📊 IP Range:</h3>
+                <p id="ip-range"></p>
+            </div>
+            <div class="result-card">
+                <h3>🧠 Binary Representation:</h3>
+                <p id="ip-binary"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by INTECU OAU Networking Intern</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
