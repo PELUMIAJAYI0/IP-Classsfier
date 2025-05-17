@@ -14,6 +14,14 @@
     <header>
         <h1>🌐 IP Address Classifier</h1>
         <p>Know your IP – Class, Range & Privacy Status</p>
+        <div class="theme-toggle">
+  <label class="switch">
+    <input type="checkbox" id="theme-switch">
+    <span class="slider"></span>
+  </label>
+  <span class="mode-label">Light Mode</span>
+</div>
+
     </header>
 
     <main>
@@ -26,18 +34,22 @@
             <div class="result-card">
                 <h3>🔢 IP Class:</h3>
                 <p id="ip-class"></p>
+                <button class="copy-btn" data-target="ip-class">📋 Copy</button>
             </div>
             <div class="result-card">
                 <h3>🔒 Private or Public:</h3>
                 <p id="ip-type"></p>
+                <button class="copy-btn" data-target="ip-class">📋 Copy</button>
             </div>
             <div class="result-card">
                 <h3>📊 IP Range:</h3>
                 <p id="ip-range"></p>
+                <button class="copy-btn" data-target="ip-class">📋 Copy</button>
             </div>
             <div class="result-card">
                 <h3>🧠 Binary Representation:</h3>
                 <p id="ip-binary"></p>
+                <button class="copy-btn" data-target="ip-class">📋 Copy</button>
             </div>
         </section>
     </main>

@@ -67,3 +67,32 @@ function toBinary(ip) {
     .map(octet => parseInt(octet).toString(2).padStart(8, '0'))
     .join('.');
 }
+
+
+// Dark Mode Toggle
+const themeSwitch = document.getElementById('theme-switch');
+themeSwitch.addEventListener('change', () => {
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+});
+
+// Load theme on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.classList.add('light');
+    document.getElementById('theme-switch').checked = true;
+  }
+});
+
+// Copy-to-clipboard functionality
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.getAttribute('data-target');
+    const text = document.getElementById(targetId).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy', 2000);
+    });
+  });
+});
