@@ -1,233 +1,238 @@
 /* style.css */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #f2f2f2;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
 }
 
 header {
-  text-align: center;
-  margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #00f7ff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #00f7ff;
 }
 
 header p {
-  font-size: 1rem;
-  opacity: 0.8;
+    font-size: 1rem;
+    opacity: 0.8;
 }
 
 .input-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 500px;
-  margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 2rem;
 }
 
 #ip-input {
-  padding: 1rem;
-  border-radius: 10px;
-  border: none;
-  width: 100%;
-  font-size: 1rem;
-  outline: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid #00f7ff;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid #00f7ff;
 }
 
 #check-btn {
-  background: #00f7ff;
-  color: #000;
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s ease;
+    background: #00f7ff;
+    color: #000;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 #check-btn:hover {
-  background: #00c4cc;
-  transform: scale(1.05);
+    background: #00c4cc;
+    transform: scale(1.05);
 }
 
 .results-section {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  width: 100%;
-  max-width: 1000px;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 100%;
+    max-width: 1000px;
 }
 
 .result-card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 247, 255, 0.3);
-  backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 247, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .result-card h3 {
-  color: #00f7ff;
-  margin-bottom: 0.5rem;
+    color: #00f7ff;
+    margin-bottom: 0.5rem;
 }
 
 footer {
-  margin-top: auto;
-  padding-top: 2rem;
-  font-size: 0.85rem;
-  opacity: 0.7;
-  text-align: center;
+    margin-top: auto;
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    text-align: center;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 :root {
-  --bg: #0f2027;
-  --text: #f2f2f2;
-  --card-bg: rgba(255, 255, 255, 0.1);
-  --accent: #00f7ff;
+    --bg: #0f2027;
+    --text: #f2f2f2;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --accent: #00f7ff;
 }
 
 body.light {
-  --bg: #f5f5f5;
-  --text: #111;
-  --card-bg: rgba(0, 0, 0, 0.05);
-  --accent: #0077ff;
+    --bg: #f5f5f5;
+    --text: #111;
+    --card-bg: rgba(0, 0, 0, 0.05);
+    --accent: #0077ff;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.5s ease, color 0.5s ease;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
-.result-card, #ip-input {
-  background: var(--card-bg);
-  border: 1px solid var(--accent);
-  transition: background 0.5s ease, border 0.3s ease;
+.result-card,
+#ip-input {
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    transition: background 0.5s ease, border 0.3s ease;
 }
 
-header h1, .result-card h3 {
-  color: var(--accent);
+header h1,
+.result-card h3 {
+    color: var(--accent);
 }
 
 /* Toggle switch */
 .theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 .mode-label {
-  margin-left: 0.5rem;
-  font-size: 0.9rem;
-  opacity: 0.7;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
 }
 
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #ccc;
-  border-radius: 34px;
-  transition: 0.4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.4s;
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
 }
 
-input:checked + .slider {
-  background-color: var(--accent);
+input:checked+.slider {
+    background-color: var(--accent);
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+input:checked+.slider:before {
+    transform: translateX(26px);
 }
 
 /* Copy button */
 .copy-btn {
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  padding: 0.3rem 0.8rem;
-  font-size: 0.75rem;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  transition: 0.3s;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: 0.3s;
 }
 
 .copy-btn:hover {
-  background: var(--accent);
-  color: #000;
+    background: var(--accent);
+    color: #000;
 }
 
 /* Entry animation */
 .result-card {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: slideUp 0.6s forwards ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s forwards ease;
 }
 
 @keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 600px) {
-  header h1 {
-    font-size: 2rem;
-  }
+    header h1 {
+        font-size: 2rem;
+    }
 
-  #check-btn {
-    width: 100%;
-  }
+    #check-btn {
+        width: 100%;
+    }
 }
