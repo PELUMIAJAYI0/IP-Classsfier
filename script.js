@@ -18,6 +18,7 @@ document.getElementById('check-btn').addEventListener('click', () => {
     const networkAddress = calculateNetworkAddress(ip, subnetMask);
     const broadcastAddress = calculateBroadcastAddress(ip, subnetMask);
     const hostCount = countUsableHosts(subnetMask);
+    const usableRange = getUsableHostRange(networkAddress, broadcastAddress);
 
 
     document.getElementById('ip-class').textContent = ipClass;
@@ -28,6 +29,7 @@ document.getElementById('check-btn').addEventListener('click', () => {
     document.getElementById('ip-network').textContent = networkAddress;
     document.getElementById('ip-broadcast').textContent = broadcastAddress;
     document.getElementById('ip-hosts').textContent = hostCount;
+    document.getElementById('ip-usable-range').textContent = usableRange;
 
 
     resultsSection.classList.remove('hidden');
@@ -111,6 +113,26 @@ function countUsableHosts(subnetMask) {
 
     return Math.pow(2, hostBits) - 2;
 }
+
+function getUsableHostRange(networkAddress, broadcastAddress) {
+    const netParts = networkAddress.split('.').map(Number);
+    const broadParts = broadcastAddress.split('.').map(Number);
+
+    // First usable = network + 1
+    netParts[3] += 1;
+
+    // Last usable = broadcast - 1
+    broadParts[3] -= 1;
+
+    const firstUsable = netParts.join('.');
+    const lastUsable = broadParts.join('.');
+
+    // If the range is invalid (like Class D or E), return "-"
+    if (netParts[3] >= broadParts[3]) return '-';
+
+    return `${firstUsable} – ${lastUsable}`;
+}
+
 
 
 
