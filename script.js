@@ -17,6 +17,8 @@ document.getElementById('check-btn').addEventListener('click', () => {
     const subnetMask = getDefaultSubnetMask(ipClass);
     const networkAddress = calculateNetworkAddress(ip, subnetMask);
     const broadcastAddress = calculateBroadcastAddress(ip, subnetMask);
+    const hostCount = countUsableHosts(subnetMask);
+
 
     document.getElementById('ip-class').textContent = ipClass;
     document.getElementById('ip-type').textContent = ipType;
@@ -25,6 +27,8 @@ document.getElementById('check-btn').addEventListener('click', () => {
     document.getElementById('ip-subnet').textContent = subnetMask;
     document.getElementById('ip-network').textContent = networkAddress;
     document.getElementById('ip-broadcast').textContent = broadcastAddress;
+    document.getElementById('ip-hosts').textContent = hostCount;
+
 
     resultsSection.classList.remove('hidden');
 });
@@ -94,6 +98,18 @@ function calculateBroadcastAddress(ip, subnet) {
     const maskParts = subnet.split('.').map(Number);
     const invertedMask = maskParts.map(part => 255 - part);
     return ipParts.map((part, i) => part | invertedMask[i]).join('.');
+}
+
+function countUsableHosts(subnetMask) {
+    const maskParts = subnetMask
+        .split('.')
+        .map(octet => parseInt(octet).toString(2).padStart(8, '0'))
+        .join('');
+    
+    const hostBits = maskParts.split('0').length - 1;
+    if (hostBits === 0) return 0; // No usable hosts
+
+    return Math.pow(2, hostBits) - 2;
 }
 
 
