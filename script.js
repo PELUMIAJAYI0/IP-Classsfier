@@ -14,11 +14,17 @@ document.getElementById('check-btn').addEventListener('click', () => {
     const ipType = isPrivate(ip) ? 'Private' : 'Public';
     const ipRange = getRange(ipClass);
     const ipBinary = toBinary(ip);
+    const subnetMask = getDefaultSubnetMask(ipClass);
+    const networkAddress = calculateNetworkAddress(ip, subnetMask);
+    const broadcastAddress = calculateBroadcastAddress(ip, subnetMask);
 
     document.getElementById('ip-class').textContent = ipClass;
     document.getElementById('ip-type').textContent = ipType;
     document.getElementById('ip-range').textContent = ipRange;
     document.getElementById('ip-binary').textContent = ipBinary;
+    document.getElementById('ip-subnet').textContent = subnetMask;
+    document.getElementById('ip-network').textContent = networkAddress;
+    document.getElementById('ip-broadcast').textContent = broadcastAddress;
 
     resultsSection.classList.remove('hidden');
 });
@@ -67,6 +73,29 @@ function toBinary(ip) {
         .map(octet => parseInt(octet).toString(2).padStart(8, '0'))
         .join('.');
 }
+
+function getDefaultSubnetMask(ipClass) {
+    switch (ipClass) {
+        case 'Class A': return '255.0.0.0';
+        case 'Class B': return '255.255.0.0';
+        case 'Class C': return '255.255.255.0';
+        default: return '0.0.0.0';
+    }
+}
+
+function calculateNetworkAddress(ip, subnet) {
+    const ipParts = ip.split('.').map(Number);
+    const maskParts = subnet.split('.').map(Number);
+    return ipParts.map((part, i) => part & maskParts[i]).join('.');
+}
+
+function calculateBroadcastAddress(ip, subnet) {
+    const ipParts = ip.split('.').map(Number);
+    const maskParts = subnet.split('.').map(Number);
+    const invertedMask = maskParts.map(part => 255 - part);
+    return ipParts.map((part, i) => part | invertedMask[i]).join('.');
+}
+
 
 
 // Dark Mode Toggle
